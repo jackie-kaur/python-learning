@@ -25,6 +25,9 @@ def print_word(secret_word, memory):
 
 while True:
     letter = input("Choose letter  ")
+    if letter.lower() < "a" or letter.lower() > "z":
+        print("Please choose a letter from a-z.")
+        continue
 
     if letter in memory:
         print("Letter already used!")
