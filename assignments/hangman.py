@@ -5,7 +5,7 @@ import random
 
 word_lst = ["animal", "fridge", "bamboo", "shared", "jungle", "values"]
 
-random_num = 0 #random.randint(0, 6)
+random_num = random.randint(0, 6)
 secret_word = word_lst[random_num]
 memory = {}
 lives = 5
