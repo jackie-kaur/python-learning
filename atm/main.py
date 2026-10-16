@@ -59,9 +59,10 @@ def user_loop(atm):
             balance = atm.checkBalance(user)
             if number_withdraw > balance:
                 print("You cannot withdraw because your balane is less than the withdraw amount.")
-            print("Money Withdrawn.")
+                continue
             
             atm.withdraw(user,number_withdraw)
+            print("Money Withdrawn.")
         elif user_ask == 3:
             balance = atm.checkBalance(user)
             print("Your balance is: " , balance)
@@ -76,6 +77,7 @@ def which_loop(atm):
         print("\n Login as: ")
         print("1. Admin")
         print("2. User")
+        print("3. Exit")
         print("")
 
         ask_choice = int(input("Choice:"))
@@ -84,6 +86,9 @@ def which_loop(atm):
             admin_loop(atm)
         elif ask_choice == 2:
             user_loop(atm)
+        elif ask_choice == 3:
+            print("Logging Out.")
+            return
         else:
             print("Invalid.")
 
