@@ -17,12 +17,31 @@ def linear_search(num):
             return True
     return False
 
+def binary_search(s, e, v, lst):
+    if s > e :
+        return False
+    
+    m = (s + e) // 2
+    if lst[m] == v:
+        return True
+
+    elif lst[m] > v:
+        return binary_search(s, m -1, v, lst)
+
+    return binary_search(m+1, e, v, lst)
+
 def main():
-    start = time.perf_counter_ns()
+    t1 = time.perf_counter_ns() 
     linear_search(55)
-    end = time.perf_counter_ns()
-    print(f"Time taken to search: {(end-start) / 1000} microseconds")
+    t2 = time.perf_counter_ns() 
+    print(f"Time taken to search: {(t2-t1) / 1000} microseconds")
 
     print(selection_sort(lst))
+
+    t1 =  time.perf_counter_ns() 
+    print(binary_search(0, len(lst), 55, lst))
+    t2 = time.perf_counter_ns() 
+    print(f"Time taken to binary search: {(t2-t1) / 1000} microseconds")
+
 
 main()
