@@ -44,6 +44,32 @@ class LinkedLists(object):
         curr.set_next(n)
         self.size = self.size + 1
 
+    def insert(self, d, idx):
+        n = Node(d)
+
+        curr = self.root
+        curr_idx = 0
+
+        for i in range(idx - 1):
+            if curr != None:
+                curr = curr.get_next()
+
+        temp = curr.get_next()
+        curr.set_next(n);
+        n.set_next(temp)
+        self.size = self.size + 1
+
+def from_list(lst):
+    l = None
+    for i in lst:
+        if l is None:
+            n = Node(i)
+            l = LinkedLists(n)
+        else:
+            l.add_to_end(i)
+    return l
+        
+
 def main():
     r = Node(2)
 
@@ -51,8 +77,12 @@ def main():
     l.add_to_end(5)
     l.add_to_end(7)
 
-    print(l.get_size())
+    print(f"Size:{l.get_size()}")
 
     l.print_all()
+
+    lst_new = [20, 50, 70, 90]
+    new_ll = from_list(lst_new)
+    new_ll.print_all()
 
 main()
